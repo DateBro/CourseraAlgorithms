@@ -1,0 +1,622 @@
+See the Assessment Guide for information on how to interpret this report.
+
+ASSESSMENT SUMMARY
+
+Compilation:  PASSED
+API:          PASSED
+
+Spotbugs:     PASSED
+PMD:          FAILED (2 warnings)
+Checkstyle:   FAILED (0 errors, 14 warnings)
+
+Correctness:  21/36 tests passed
+Memory:       4/4 tests passed
+Timing:       19/27 tests passed
+
+Aggregate score: 69.07%
+[Compilation: 5%, API: 5%, Spotbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
+
+ASSESSMENT DETAILS
+
+The following files were submitted:
+----------------------------------
+1.3K Dec 21 07:59 Outcast.java
+7.4K Dec 21 07:59 SAP.java
+5.3K Dec 21 07:59 WordNet.java
+
+
+********************************************************************************
+*  COMPILING                                                                    
+********************************************************************************
+
+
+% javac SAP.java
+*-----------------------------------------------------------
+
+% javac WordNet.java
+*-----------------------------------------------------------
+
+% javac Outcast.java
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+Checking the APIs of your programs.
+*-----------------------------------------------------------
+SAP:
+
+WordNet:
+
+Outcast:
+
+================================================================
+
+
+********************************************************************************
+*  CHECKING STYLE AND COMMON BUG PATTERNS                                       
+********************************************************************************
+
+
+% spotbugs *.class
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+% pmd .
+*-----------------------------------------------------------
+Outcast.java:5: The private instance (or static) variable 'wordNet' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+SAP.java:9: The private instance (or static) variable 'digraph' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+PMD ends with 2 warnings.
+
+
+================================================================
+
+
+% checkstyle *.java
+*-----------------------------------------------------------
+[WARN] Outcast.java:16:13: The local variable 'N' must start with a lowercase letter and use camelCase. [LocalVariableName]
+[WARN] SAP.java:101:47: The local (or parameter) variable 'digraph' has the same name as an instance variable. Use a different name. [HiddenField]
+[WARN] SAP.java:194:14: Use the primitive type instead of the corresponding wrapper type 'Integer'. For example, use 'boolean' instead of 'Boolean'. [Wrapper]
+[WARN] WordNet.java:93:17: '==' is not preceded with whitespace. [WhitespaceAround]
+[WARN] WordNet.java:93:19: '==' is not followed by whitespace. [WhitespaceAround]
+[WARN] WordNet.java:115:18: '==' is not preceded with whitespace. [WhitespaceAround]
+[WARN] WordNet.java:115:20: '==' is not followed by whitespace. [WhitespaceAround]
+[WARN] WordNet.java:115:33: '==' is not preceded with whitespace. [WhitespaceAround]
+[WARN] WordNet.java:115:35: '==' is not followed by whitespace. [WhitespaceAround]
+[WARN] WordNet.java:146:11: 'if' is not followed by whitespace. [WhitespaceAfter]
+[WARN] WordNet.java:146:17: '==' is not preceded with whitespace. [WhitespaceAround]
+[WARN] WordNet.java:146:19: '==' is not followed by whitespace. [WhitespaceAround]
+[WARN] WordNet.java:146:32: '==' is not preceded with whitespace. [WhitespaceAround]
+[WARN] WordNet.java:146:34: '==' is not followed by whitespace. [WhitespaceAround]
+Checkstyle ends with 0 errors and 14 warnings.
+
+% custom checkstyle checks for SAP.java
+*-----------------------------------------------------------
+
+% custom checkstyle checks for WordNet.java
+*-----------------------------------------------------------
+[INFO] WordNet.java:1: The program uses neither 'DirectedCycle' nor 'Topological' to check whether the digraph is a DAG. [Design]
+
+% custom checkstyle checks for Outcast.java
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+********************************************************************************
+*  TESTING CORRECTNESS
+********************************************************************************
+
+Testing correctness of SAP
+*-----------------------------------------------------------
+Running 20 total tests.
+
+Test 1: check length() and ancestor() on fixed digraphs
+  * digraph1.txt
+  * digraph2.txt
+  * digraph3.txt
+  * digraph4.txt
+  * digraph5.txt
+  * digraph6.txt
+  * digraph9.txt
+==> passed
+
+Test 2: check length() and ancestor() on WordNet digraph
+  * 100 random vertex pairs in digraph-wordnet.txt
+==> passed
+
+Test 3: check length() and ancestor() on directed paths
+  * 5
+  * 10
+  * 20
+  * 50
+  * 100
+==> passed
+
+Test 4: check length() and ancestor() on directed cycles
+  * 5
+  * 10
+  * 20
+  * 50
+  * 100
+==> passed
+
+Test 5: check length() and ancestor() on complete graphs
+  * 5
+  * 10
+  * 20
+  * 50
+==> passed
+
+Test 6: check length() and ancestor() on tournament digraphs
+  * 5
+  * 10
+  * 20
+  * 50
+==> passed
+
+Test 7: check length() and ancestor() on complete binary trees
+  * 5
+  * 10
+  * 20
+  * 50
+  * 100
+==> passed
+
+Test 8: check length() and ancestor() on random DAGs
+  * 5 vertices, 8 edges
+  * 10 vertices, 40 edges
+  * 20 vertices, 100 edges
+==> passed
+
+Test 9: check length() and ancestor() on random rooted-in DAGs
+  * 5 vertices, 8 edges
+  * 10 vertices, 40 edges
+  * 20 vertices, 100 edges
+==> passed
+
+Test 10: check length() and ancestor() on random rooted-out DAGs
+  * 5 vertices, 8 edges
+  * 10 vertices, 40 edges
+  * 20 vertices, 100 edges
+==> passed
+
+Test 11: check length() and ancestor() on random rooted-in trees
+  * 5 vertices
+  * 10 vertices
+  * 20 vertices
+==> passed
+
+Test 12: check length() and ancestor() on random rooted-out trees
+  * 5 vertices
+  * 10 vertices
+  * 20 vertices
+==> passed
+
+Test 13: check length() and ancestor() on random simple digraphs
+  * 5 vertices, 8 edges
+  * 10 vertices, 40 edges
+  * 20 vertices, 100 edges
+==> passed
+
+Test 14: check whether two SAP objects can be created at the same time
+  * digraph1.txt and digraph2.txt
+  * digraph3.txt and digraph4.txt
+  * digraph5.txt and digraph6.txt
+  * digraph2.txt and digraph1.txt
+==> passed
+
+Test 15: check whether SAP is immutable
+  * digraph1.txt
+    - after adding edges (v, 0) to G
+    - v = 0, w = 3
+    - student length before = 2
+    - student length after  = 1
+
+  * digraph2.txt
+    - after adding edges (v, 0) to G
+    - v = 0, w = 2
+    - student length before = 4
+    - student length after  = 1
+
+  * digraph3.txt
+    - after adding edges (v, 0) to G
+    - v = 0, w = 1
+    - student length before = -1
+    - student length after  = 1
+
+  * digraph4.txt
+    - after adding edges (v, 0) to G
+    - v = 0, w = 1
+    - student length before = 3
+    - student length after  = 1
+
+  * digraph5.txt
+    - after adding edges (v, 0) to G
+    - v = 0, w = 1
+    - student length before = -1
+    - student length after  = 1
+
+  * digraph6.txt
+    - after adding edges (v, 0) to G
+    - v = 0, w = 2
+    - student length before = 2
+    - student length after  = 1
+
+  * digraph-ambiguous-ancestor.txt
+    - after adding edges (v, 0) to G
+    - v = 0, w = 2
+    - student length before = 2
+    - student length after  = 1
+
+==> FAILED
+
+Test 16: check length() and ancestor() with iterable arguments
+  * 100 random subsets of 1 and 1 vertices in digraph-wordnet.txt
+  * 100 random subsets of 1 and 2 vertices in digraph-wordnet.txt
+  * 100 random subsets of 2 and 1 vertices in digraph-wordnet.txt
+  * 100 random subsets of 2 and 2 vertices in digraph-wordnet.txt
+  * 100 random subsets of 3 and 11 vertices in digraph-wordnet.txt
+  * 100 random subsets of 11 and 3 vertices in digraph-wordnet.txt
+==> passed
+
+Test 17: check length() and ancestor() with zero-length iterable arguments
+  * 100 random subsets of 0 and 5 vertices in digraph-wordnet.txt
+  * 100 random subsets of 5 and 0 vertices in digraph-wordnet.txt
+  * 100 random subsets of 0 and 0 vertices in digraph-wordnet.txt
+==> passed
+
+Test 18: check length() and ancestor() with invalid arguments
+  * G = digraph1.txt v = -1, w = 0
+  * G = digraph1.txt v = 0, w = -1
+  * G = digraph1.txt v = 13, w = 0
+  * G = digraph1.txt v = 0, w = 13
+==> passed
+
+Test 19: check iterable versions of length() and ancestor() with invalid arguments
+  * G = digraph1.txt, v = { 0, 7, 9, 12 }, w = null
+  * G = digraph1.txt, v = null, w = { 1, 2, 4, 5, 10 }
+  * G = digraph1.txt, v = null, w = null
+  * G = digraph1.txt, v = { 0, 7, 9, 12, -1 }, w = { 1, 2, 4, 5, 10 }
+  * G = digraph1.txt, v = { 0, 7, 9, 12 }, w = { 1, 2, -1, 4, 5, 10 }
+  * G = digraph1.txt, v = { 13, 0, 7, 9, 12 }, w = { 1, 2, 4, 5, 10 }
+  * G = digraph1.txt, v = { 0, 7, 9, 12 }, w = { 1, 2, 4, 5, 13, 10 }
+  * G = digraph1.txt, v = { 0, null, 7, 9, 12 }, w = { 1, 2, 4, 5, 10 }
+  * G = digraph1.txt, v = { 0, 7, 9, 12 }, w = { 1, 2, 4, null, 5, 10 }
+==> passed
+
+Test 20: random calls to both version of length() and ancestor(),
+         with probabilities p1 and p2, respectively
+  * random calls in a random rooted DAG (20 vertices, 100 edges)
+    (p1 = 0.5, p2 = 0.5)
+  * random calls in a random digraph (20 vertices, 100 edges)
+    (p1 = 0.5, p2 = 0.5)
+==> passed
+
+
+Total: 19/20 tests passed!
+
+
+================================================================
+********************************************************************************
+*  TESTING CORRECTNESS (substituting reference SAP)
+********************************************************************************
+
+Testing correctness of WordNet
+*-----------------------------------------------------------
+Running 14 total tests.
+
+Test 1: check distance() with random noun pairs
+  * 1000 pairs using synsets = synsets.txt; hypernyms = hypernyms.txt
+==> passed
+
+Test 2: check distance() with all noun pairs
+  * synsets = synsets15.txt; hypernyms = hypernyms15Path.txt
+  * synsets = synsets15.txt; hypernyms = hypernyms15Tree.txt
+  * synsets = synsets6.txt; hypernyms = hypernyms6TwoAncestors.txt
+  * synsets = synsets11.txt; hypernyms = hypernyms11AmbiguousAncestor.txt
+  * synsets = synsets8.txt; hypernyms = hypernyms8ModTree.txt
+  * synsets = synsets8.txt; hypernyms = hypernyms8WrongBFS.txt
+  * synsets = synsets11.txt; hypernyms = hypernyms11ManyPathsOneAncestor.txt
+  * synsets = synsets8.txt; hypernyms = hypernyms8ManyAncestors.txt
+==> passed
+
+Test 3: check distance() with random noun pairs
+  * 1000 pairs using synsets = synsets100-subgraph.txt; hypernyms = hypernyms100-subgraph.txt
+  * 1000 pairs using synsets = synsets500-subgraph.txt; hypernyms = hypernyms500-subgraph.txt
+  * 1000 pairs using synsets = synsets1000-subgraph.txt; hypernyms = hypernyms1000-subgraph.txt
+==> passed
+
+Test 4: check sap() with random noun pairs
+  * 1000 pairs using synsets = synsets.txt; hypernyms = hypernyms.txt
+
+
+WARNING: the time limit of 180 seconds was exceeded, so not all tests could be completed.
+
+
+
+Total: 0/14 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+********************************************************************************
+*  TESTING CORRECTNESS (substituting reference SAP and WordNet)
+********************************************************************************
+
+Testing correctness of Outcast
+*-----------------------------------------------------------
+Running 2 total tests.
+
+Test 1: check outcast() on WordNet digraph
+        (synsets.txt and hypernyms.txt)
+  * outcast2.txt
+  * outcast3.txt
+  * outcast4.txt
+  * outcast5.txt
+  * outcast5a.txt
+  * outcast7.txt
+  * outcast8.txt
+  * outcast8a.txt
+  * outcast8b.txt
+  * outcast8c.txt
+  * outcast9.txt
+  * outcast9a.txt
+  * outcast10.txt
+  * outcast10a.txt
+  * outcast11.txt
+  * outcast12.txt
+  * outcast12a.txt
+  * outcast17.txt
+  * outcast20.txt
+  * outcast29.txt
+==> passed
+
+Test 2: check outcast() on WordNet subgraph
+        (synsets50000-subgraph.txt and hypernyms50000-subgraph.txt)
+  * outcast2.txt
+  * outcast3.txt
+  * outcast5.txt
+  * outcast5a.txt
+  * outcast7.txt
+  * outcast8.txt
+  * outcast8b.txt
+  * outcast8c.txt
+  * outcast9.txt
+  * outcast10.txt
+  * outcast11.txt
+==> passed
+
+
+Total: 2/2 tests passed!
+
+
+================================================================
+********************************************************************************
+*  MEMORY
+********************************************************************************
+
+Analyzing memory of SAP
+*-----------------------------------------------------------
+Running 1 total tests.
+
+digraph G             = digraph-wordnet.txt
+vertices in G         = 82192
+edges    in G         = 84505
+student     memory    = 8347864 bytes
+reference   memory    = 10320552 bytes
+ratio                 = 0.81
+maximum allowed ratio = 2.50
+
+Total: 1/1 tests passed!
+
+================================================================
+
+
+
+Analyzing memory of WordNet
+*-----------------------------------------------------------
+Running 3 total tests.
+
+Test 1a: check memory of WordNet object
+  * synsets = synsets1000-subgraph.txt; hypernyms = hypernyms1000-subgraph.txt
+    - number of vertices in digraph = 1000
+    - number of edges    in digraph = 1008
+    - student   memory              = 204280 bytes
+    - reference memory              = 1494080 bytes
+    - student / reference ratio     = 0.1
+    - maximum allowed rato          = 2.0
+
+==> passed
+
+Test 1b: check memory of WordNet object
+  * synsets = synsets5000-subgraph.txt; hypernyms = hypernyms5000-subgraph.txt
+    - number of vertices in digraph = 5000
+    - number of edges    in digraph = 5059
+    - student   memory              = 1037160 bytes
+    - reference memory              = 7296328 bytes
+    - student / reference ratio     = 0.1
+    - maximum allowed rato          = 2.0
+
+==> passed
+
+Test 1c: check memory of WordNet object
+  * synsets = synsets10000-subgraph.txt; hypernyms = hypernyms10000-subgraph.txt
+    - number of vertices in digraph = 10000
+    - number of edges    in digraph = 10087
+    - student   memory              = 2237448 bytes
+    - reference memory              = 16931744 bytes
+    - student / reference ratio     = 0.1
+    - maximum allowed rato          = 2.0
+
+==> passed
+
+Total: 3/3 tests passed!
+
+================================================================
+
+
+
+********************************************************************************
+*  TIMING
+********************************************************************************
+
+Timing SAP
+*-----------------------------------------------------------
+Running 14 total tests.
+
+Test 1: time SAP constructor
+   *  digraph-wordnet.txt
+      -  student solution time =  0.00 seconds
+      -  maximum allowed  time =  1.00 seconds
+==> passed
+
+Test 2a-c: time length() and ancestor() with random pairs of vertices
+  *  digraph-wordnet.txt
+     -  reference solution calls per second:  507714.00
+     -  student   solution calls per second:  456551.00
+     -  reference / student ratio:                 1.11
+
+=> passed      student <= 50000x reference
+=> passed      student <= 10000x reference
+=> passed      student <=  5000x reference
+=> passed      student <=  1000x reference
+=> BONUS       student <=   100x reference
+=> BONUS       student <=    10x reference
+=> BONUS       student <=     2x reference
+
+Test 3a-c: time length() and ancestor() with random subsets of 5 vertices
+  *  digraph-wordnet.txt
+     -  reference solution calls per second:  171900.00
+     -  student   solution calls per second:   22826.00
+     -  reference / student ratio:                 7.53
+
+=> passed      student <= 10000x reference
+=> passed      student <=  5000x reference
+=> passed      student <=  1000x reference
+=> passed      student <=   500x reference
+=> BONUS       student <=    10x reference
+
+Test 4a-c: time length() and ancestor() with random subsets of 100 vertices
+  *  digraph-wordnet.txt
+     -  reference solution calls per second:   11663.00
+     -  student   solution calls per second:      51.00
+     -  reference / student ratio:               228.69
+
+=> passed      student <= 10000x reference
+=> passed      student <=  5000x reference
+=> passed      student <=  1000x reference
+=> passed      student <=   500x reference
+
+Test 5: Time 10 calls to length() and ancestor() on random path graphs
+        (must handle V = 65536 in under 2 seconds)
+
+             V  seconds
+        ---------------
+          2048     0.07
+          4096     0.24
+          8192     0.77
+         16384     4.85
+==> FAILED
+
+
+Total: 17/14 tests passed!
+
+
+================================================================
+
+
+
+********************************************************************************
+*  TIMING (substituting reference SAP)
+********************************************************************************
+
+Timing WordNet
+*-----------------------------------------------------------
+Running 11 total tests.
+
+Test 1: check that exactly two In object created
+        (one for synsets file and one for hypernyms file)
+==> passed
+
+Test 2: count number of SAP operations when constructing a WordNet object
+        and calling distance() and sap() three times each
+  * calls to constructor = 1
+  * calls to length()    = 3
+  * calls to ancestor()  = 6
+
+==> passed
+
+Test 3: count Digraph operations during WordNet constructor
+  * synsets = synsets.txt; hypernyms = hypernyms.txt
+  * number of synsets    = 82192
+  * number of hypernyms  = 84505
+  * calls to constructor = 1
+  * calls to addEdge()   = 84505
+  * calls to adj()       = 0
+  * calls to outdegree() = 0
+  * calls to indegree()  = 0
+  * calls to reverse()   = 0
+  * calls to toString()  = 0
+
+==> passed
+
+Test 4: count Digraph operations during 1000 calls each
+        to distance() and sap()
+
+
+Total: 0/11 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+
+
+
+********************************************************************************
+*  TIMING (substituting reference SAP and WordNet)
+********************************************************************************
+
+Timing Outcast
+*-----------------------------------------------------------
+Running 2 total tests.
+
+Test 1: count calls to methods in WordNet
+ * outcast4.txt
+ * outcast10.txt
+ * outcast29.txt
+==> passed
+
+Test 2: timing calls to outcast() for various outcast files
+
+Total time must not exceed 1.0 seconds.
+
+    filename       n     time
+-----------------------------
+   outcast4.txt    4     0.00
+   outcast5.txt    5     0.00
+  outcast5a.txt    5     0.00
+   outcast5.txt    5     0.00
+   outcast7.txt    7     0.00
+   outcast8.txt    8     0.00
+  outcast8a.txt    8     0.00
+  outcast8b.txt    8     0.00
+  outcast8c.txt    8     0.00
+   outcast9.txt    9     0.00
+  outcast9a.txt    9     0.00
+  outcast10.txt   10     0.00
+ outcast10a.txt   10     0.00
+  outcast11.txt   11     0.00
+  outcast12.txt   12     0.00
+ outcast12a.txt   12     0.00
+  outcast20.txt   20     0.00
+  outcast29.txt   29     0.01
+
+Total elapsed time: 0.02 seconds
+
+==> passed
+
+
+Total: 2/2 tests passed!
+
+
+================================================================
