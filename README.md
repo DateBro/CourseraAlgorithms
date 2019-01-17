@@ -36,10 +36,11 @@ Coursera 上 __Robert Sedgewick__ 和 __Kevin Wayne__ 开设的 Algorithm 课程
 1. [WordNet](https://www.coursera.org/learn/algorithms-part2/programming/BCNsp/wordnet)
 2. [Seam Carving](https://www.coursera.org/learn/algorithms-part2/programming/cOdkz/seam-carving)
 3. [Baseball Elimination](https://www.coursera.org/learn/algorithms-part2/programming/hmYRI/baseball-elimination)
+4. [Boggle](https://www.coursera.org/learn/algorithms-part2/programming/9GqJs/boggle/submission)
 
 ## 协助：
 
-因为个人总不能让每门课都面面俱到，所以欢迎各位的协助。
+因为个人总不能让每个作业都达到满分或者提出别出心裁的想法，所以欢迎各位的协助。
 
 纠正、资源、建议、讨论等等等等欢迎大家通过Issue、PR形式提出！
 
@@ -47,6 +48,6 @@ Coursera 上 __Robert Sedgewick__ 和 __Kevin Wayne__ 开设的 Algorithm 课程
 
 - Issue：添加附件在 Issue 中，由维护者添加。
 
-还请大家注意一下目录结构~将必修课与方向课的资料添加到相应文件夹中。
+还请大家注意一下目录结构~作业代码和说明添加到相应文件夹中。
 
 大于50M资料请压缩成 zip/rar 格式上传。
