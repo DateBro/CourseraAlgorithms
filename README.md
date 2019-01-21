@@ -37,12 +37,13 @@ Coursera 上 __Robert Sedgewick__ 和 __Kevin Wayne__ 开设的 Algorithm 课程
 2. [Seam Carving](https://www.coursera.org/learn/algorithms-part2/programming/cOdkz/seam-carving)
 3. [Baseball Elimination](https://www.coursera.org/learn/algorithms-part2/programming/hmYRI/baseball-elimination)
 4. [Boggle](https://www.coursera.org/learn/algorithms-part2/programming/9GqJs/boggle/submission)
+5. [Burrows-Wheeler](https://www.coursera.org/learn/algorithms-part2/programming/3nmSB/burrows-wheeler)
 
 ## 协助：
 
 因为个人总不能让每个作业都达到满分或者提出别出心裁的想法，所以欢迎各位的协助。
 
-纠正、资源、建议、讨论等等等等欢迎大家通过Issue、PR形式提出！
+纠正、资源、建议、讨论等等欢迎大家通过Issue、PR形式提出！
 
 - 提交 PR：先 Fork 本项目后在个人仓库中做出修改，发起 pull request 即可。
 
@@ -51,3 +52,6 @@ Coursera 上 __Robert Sedgewick__ 和 __Kevin Wayne__ 开设的 Algorithm 课程
 还请大家注意一下目录结构~作业代码和说明添加到相应文件夹中。
 
 大于50M资料请压缩成 zip/rar 格式上传。
+
+![求star](/ReadMeImg/求star.png)
+
